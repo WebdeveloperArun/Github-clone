@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    background: linear-gradient(to right, #030008, #090019);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    color: white;
+}
+
+/* Scroll bar */
+
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #000000;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #282828;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #353535;
+  }
