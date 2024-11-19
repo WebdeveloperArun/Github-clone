@@ -13,7 +13,7 @@ const authUser = true
 
 
  return (
-  <aside className="flex flex-col items-center min-w-12 sm:w-16 sticky top-0 left-0 h-screen py-8 overflow-y-auto backdrop-filter backdrop-blur-md bg-opacity-30 bg-gray-500">
+  <aside className="flex flex-col items-center min-w-12 sm:w-16 fixed top-0 left-0 h-screen py-8 overflow-y-auto backdrop-filter backdrop-blur-md bg-opacity-30 bg-gray-500  ">
    <nav className="h-full flex flex-col gap-3 text-white">
     <Link to="/" className="flex justify-center">
      <img className="h-8" src="/github.svg" alt="Github Logo" />

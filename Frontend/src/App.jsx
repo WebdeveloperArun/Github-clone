@@ -1,4 +1,5 @@
 import { Route, Routes } from "react-router-dom";
+import { Toaster } from "react-hot-toast";
 
 import Sidebar from "./Components/Sidebar";
 
@@ -11,7 +12,7 @@ import SignupPage from "./Pages/SignupPage";
 function App() {
  return (
   <>
-   <div className="flex">
+   <div className="flex pl-16">
     <Sidebar />
     <div className="w-full h-screen max-w-5xl text-white mx-auto transition-all duration-300 flex-1 items-center justify-center">
      <Routes>
@@ -21,6 +22,7 @@ function App() {
       <Route path="/explore" element={<ExplorePage />} />
       <Route path="/likes" element={<LikesPage />} />
      </Routes>
+     <Toaster />
     </div>
    </div>
   </>
