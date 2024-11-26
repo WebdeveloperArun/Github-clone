@@ -14,11 +14,14 @@ const HomePage = () => {
   const [sortType, setSortType] = useState("recent");
 
 
-
   const getUserProfileAndRepos = async (username = "WebdeveloperArun") => {
    setLoading(true);
    try {
-    const response = await fetch(`https://api.github.com/users/${username}`);
+    const response = await fetch(`https://api.github.com/users/${username}`, {
+     headers: {
+      authorization: `token ${import.meta.env.VITE_GITHUB_API_KEY}`,
+     },
+    });
     const data = await response.json();
     setProfileData(data);
 
@@ -53,6 +56,24 @@ const HomePage = () => {
    }
   };
 
+  const onSort = async (sortType) => {
+     if (sortType === "recent") {
+      repositories.sort(
+       (a, b) => new Date(b.created_at) - new Date(a.created_at)
+      );
+     } else if (sortType === "stars") {
+      repositories.sort(
+       (a, b) => new Date(b.stargazers_count) - new Date(a.stargazers_count)
+      );
+     } else if (sortType === "forks") {
+      repositories.sort(
+       (a, b) => new Date(b.forks_count) - new Date(a.forks_count)
+      );
+     }
+     setSortType(sortType);
+     setRepositories([...repositories]);
+  }
+
   console.log("profileData", profileData);
   console.log("repositories", repositories);
   
@@ -60,7 +81,7 @@ const HomePage = () => {
   return (
    <div className="m-4">
     <Search  onSearch={onSearch}/>
-    <SortRepos />
+    <SortRepos onSort={onSort} sortType={sortType} />
     <div className="flex gap-4 flex-col sm:flex-row lg-flex-row justify-center items-start">
      {loading ? <Spinner /> : <ProfileInfo profileData={profileData} />}
      {loading ? <Spinner /> : <Repos repositories={repositories} />}

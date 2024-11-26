@@ -2,7 +2,7 @@
    
    const Spinner = () => {
      return (
-      <div>
+      <div className="flex justify-center items-center h-48">
        <div role="status">
         <svg
          aria-hidden="true"

@@ -12,7 +12,7 @@ import SignupPage from "./Pages/SignupPage";
 function App() {
  return (
   <>
-   <div className="flex pl-16">
+   <div className="flex w-full pl-16">
     <Sidebar />
     <div className="w-full h-screen max-w-5xl text-white mx-auto transition-all duration-300 flex-1 items-center justify-center">
      <Routes>

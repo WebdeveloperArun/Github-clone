@@ -22,25 +22,25 @@ const ProfileInfo = ({profileData}) => {
     // }
   return (
    <div>
-    <div className="w-full max-w-2xl bg-gray-900 text-gray-100 rounded-lg shadow-lg overflow-hidden ">
+    <div className="w-[22rem] bg-gray-900 text-gray-100 rounded-lg shadow-lg overflow-hidden ">
      <div className="p-6">
       <div className="flex flex-row gap-4 items-center mb-6">
        <div className="w-24 h-24 rounded-full border-2 border-gray-700 overflow-hidden">
         <img
-         src={profileData?.avatar_url}  
+         src={profileData?.avatar_url}
          alt="User's avatar"
          className="w-full h-full object-cover"
         />
        </div>
        <div className="flex flex-col">
-        <h2 className="text-2xl font-bold">{profileData?.name}</h2>
-        <p className="text-gray-400">{profileData?.username}</p>
+        <h2 className="text-2xl font-bold">
+         {profileData?.name || "User Name"}
+        </h2>
+        <p className="text-gray-400">{profileData?.username || "username"}</p>
        </div>
       </div>
       <div className="space-y-4">
-       <p className="text-sm">
-        {profileData?.bio}
-       </p>
+       <p className="text-sm">{profileData?.bio}</p>
        <div className="flex gap-4 text-sm text-gray-400">
         <div className="flex items-center">
          <svg
@@ -94,7 +94,7 @@ const ProfileInfo = ({profileData}) => {
          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
          <circle cx="12" cy="10" r="3" />
         </svg>
-        <span>{profileData?.location || 'Unknown'}</span>
+        <span>{profileData?.location || "Unknown"}</span>
        </div>
        <div className="flex items-center gap-2 text-sm text-gray-400">
         <svg
@@ -111,7 +111,10 @@ const ProfileInfo = ({profileData}) => {
          <line x1="2" y1="12" x2="22" y2="12" />
          <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
         </svg>
-        <a href={profileData?.html_url} className="text-blue-400 hover:underline">
+        <a
+         href={profileData?.html_url}
+         className="text-blue-400 hover:underline"
+        >
          {profileData?.html_url}
         </a>
        </div>
